@@ -1,0 +1,110 @@
+﻿@page "/ejercicio/25"
+
+<PageTitle>Ejercicio 25</PageTitle>
+
+<h2>Ejercicio 25: Calcular la moda de una matriz</h2>
+
+<p>Ingresa los valores de la matriz 5x5:</p>
+
+@for (int i = 0; i < 5; i++)
+{
+    <div>
+        @for (int j = 0; j < 5; j++)
+        {
+            <input @bind="matriz[i, j]" type="number" class="input-matriz" />
+        }
+    </div>
+}
+
+<p>Resultado (Moda de la matriz): @resultadoModa</p>
+
+<button @onclick="CalcularModaEnMatriz" class="btn-calcular">Calcular Moda</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+
+    .input-matriz {
+        width: 50px;
+        margin-right: 10px;
+    }
+</style>
+
+@code {
+    private int[,] matriz = new int[5, 5];
+    private int resultadoModa;
+
+    private void CalcularModaEnMatriz()
+    {
+        resultadoModa = CalcularModa(matriz);
+    }
+
+    private int CalcularModa(int[,] mat)
+    {
+        Dictionary<int, int> conteo = new Dictionary<int, int>();
+
+        // Contar ocurrencias de cada número
+        for (int i = 0; i < 5; i++)
+        {
+            for (int j = 0; j < 5; j++)
+            {
+                int numero = mat[i, j];
+                if (conteo.ContainsKey(numero))
+                {
+                    conteo[numero]++;
+                }
+                else
+                {
+                    conteo[numero] = 1;
+                }
+            }
+        }
+
+        // Encontrar el número con más ocurrencias
+        int moda = mat[0, 0];
+        int maxOcurrencias = 0;
+
+        foreach (var par in conteo)
+        {
+            if (par.Value > maxOcurrencias)
+            {
+                maxOcurrencias = par.Value;
+                moda = par.Key;
+            }
+        }
+
+        return moda;
+    }
+}
+

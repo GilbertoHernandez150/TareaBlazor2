@@ -1,0 +1,94 @@
+﻿@page "/ejercicio/23"
+
+<PageTitle>Ejercicio 23</PageTitle>
+
+<h2>Ejercicio 23: Contar ocurrencias de un valor en una matriz</h2>
+
+<p>Ingresa los valores de la matriz 4x4:</p>
+
+@for (int i = 0; i < 4; i++)
+{
+    <div>
+        @for (int j = 0; j < 4; j++)
+        {
+            <input @bind="matriz[i, j]" type="number" class="input-matriz" />
+        }
+    </div>
+}
+
+<p>Ingresa un valor a buscar:</p>
+<input @bind="valorBuscar" type="number" />
+
+<p>Resultado (Cantidad de veces que se repite el valor en la matriz): @resultadoCantidad</p>
+
+<button @onclick="ContarValorEnMatriz" class="btn-calcular">Contar Valor</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+
+    .input-matriz {
+        width: 50px;
+        margin-right: 10px;
+    }
+</style>
+
+@code {
+    private int[,] matriz = new int[4, 4];
+    private int valorBuscar;
+    private int resultadoCantidad = 0;
+
+    private void ContarValorEnMatriz()
+    {
+        resultadoCantidad = ContarOcurrencias(matriz, valorBuscar);
+    }
+
+    private int ContarOcurrencias(int[,] mat, int valor)
+    {
+        int contador = 0;
+
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (mat[i, j] == valor)
+                {
+                    contador++;
+                }
+            }
+        }
+
+        return contador;
+    }
+}

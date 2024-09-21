@@ -1,0 +1,75 @@
+﻿@page "/ejercicio/6"
+
+<PageTitle>Ejercicio 6</PageTitle>
+
+<h2>Ejercicio 6: Verificar si un número es múltiplo de un dígito</h2>
+
+<p>Ingresa un número entero:</p>
+<input @bind="numero" type="number" />
+
+<p>Ingresa un dígito:</p>
+<input @bind="digito" type="number" maxlength="1" />
+
+<p>Resultado: @resultadoMultiplo</p>
+
+<button @onclick="VerificarMultiplo" class="btn-calcular">Verificar Múltiplo</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+</style>
+
+@code {
+    private int numero;
+    private int digito;
+    private int resultadoMultiplo;
+
+    private void VerificarMultiplo()
+    {
+        if (digito != 0)
+        {
+            resultadoMultiplo = EsMultiplo(numero, digito) ? 1 : 0;
+        }
+        else
+        {
+            resultadoMultiplo = 0; // Evitamos división por cero
+        }
+    }
+
+    private bool EsMultiplo(int num, int dig)
+    {
+        // Retornamos true si el número es múltiplo del dígito, false si no lo es
+        return num % dig == 0;
+    }
+}

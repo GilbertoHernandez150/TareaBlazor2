@@ -1,0 +1,82 @@
+﻿@page "/ejercicio/16"
+
+<PageTitle>Ejercicio 16</PageTitle>
+
+<h2>Ejercicio 16: Calcular el promedio entero del vector</h2>
+
+<p>Ingresa 10 números enteros en el vector:</p>
+
+@for (int i = 0; i < 10; i++)
+{
+    <input @bind="vector[i]" type="number" class="input-vector" />
+}
+
+<p>Resultado (Promedio entero): @resultadoPromedio</p>
+
+<button @onclick="CalcularPromedio" class="btn-calcular">Calcular Promedio</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+
+    .input-vector {
+        width: 50px;
+        margin-right: 10px;
+    }
+</style>
+
+@code {
+    private int[] vector = new int[10];
+    private int resultadoPromedio = 0;
+
+    private void CalcularPromedio()
+    {
+        resultadoPromedio = ObtenerPromedio(vector);
+    }
+
+    private int ObtenerPromedio(int[] vec)
+    {
+        int suma = 0;
+
+        // Sumar todos los elementos del vector
+        for (int i = 0; i < vec.Length; i++)
+        {
+            suma += vec[i];
+        }
+
+        // Calcular el promedio entero
+        return vec.Length > 0 ? suma / vec.Length : 0;
+    }
+}
+

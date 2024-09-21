@@ -1,0 +1,85 @@
+﻿@page "/ejercicio/19"
+
+<PageTitle>Ejercicio 19</PageTitle>
+
+<h2>Ejercicio 19: Elevar una base a un exponente</h2>
+
+<p>Ingresa la base:</p>
+<input @bind="baseNum" type="number" />
+
+<p>Ingresa el exponente:</p>
+<input @bind="exponente" type="number" />
+
+<p>Resultado (Base elevada a Exponente): @resultado</p>
+
+<button @onclick="CalcularPotencia" class="btn-calcular">Calcular Potencia</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+</style>
+
+@code {
+    private int baseNum; // Renombrado de 'base' a 'baseNum'
+    private int exponente;
+    private double resultado = 0;
+
+    private void CalcularPotencia()
+    {
+        resultado = Elevar(baseNum, exponente);
+    }
+
+    private double Elevar(int b, int e)
+    {
+        // Si el exponente es negativo, se calcula la potencia de forma recíproca
+        if (e < 0)
+        {
+            return 1.0 / Elevar(b, -e);
+        }
+        // Caso base para exponentes 0
+        if (e == 0)
+        {
+            return 1;
+        }
+        double resultado = 1;
+
+        // Multiplicamos la base por sí misma 'e' veces
+        for (int i = 0; i < e; i++)
+        {
+            resultado *= b;
+        }
+
+        return resultado;
+    }
+}

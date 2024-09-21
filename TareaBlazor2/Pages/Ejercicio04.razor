@@ -1,0 +1,67 @@
+﻿@page "/ejercicio/4"
+
+<PageTitle>Ejercicio 4</PageTitle>
+
+<h2>Ejercicio 4: Obtener el código ASCII de un carácter</h2>
+
+<p>Ingresa un carácter:</p>
+<input @bind="caracter" maxlength="1" />
+
+<p>El código ASCII del carácter es: @codigoASCII</p>
+
+<button @onclick="ObtenerCodigoASCII" class="btn-calcular">Obtener Código ASCII</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+</style>
+
+@code {
+    private string caracter;
+    private int codigoASCII;
+
+    private void ObtenerCodigoASCII()
+    {
+        if (!string.IsNullOrEmpty(caracter) && caracter.Length == 1)
+        {
+            codigoASCII = ObtenerCodigoDeCaracter(caracter[0]);
+        }
+    }
+
+    private int ObtenerCodigoDeCaracter(char c)
+    {
+        return Convert.ToInt32(c);
+    }
+}
+

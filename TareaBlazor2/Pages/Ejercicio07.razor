@@ -1,0 +1,88 @@
+﻿@page "/ejercicio/7"
+
+<PageTitle>Ejercicio 7</PageTitle>
+
+<h2>Ejercicio 7: Contar la cantidad de veces que un dígito aparece en un número</h2>
+
+<p>Ingresa un número entero:</p>
+<input @bind="numero" type="number" />
+
+<p>Ingresa un dígito:</p>
+<input @bind="digito" type="number" maxlength="1" />
+
+<p>El dígito @digito aparece @cantidadVeces veces en el número @numero.</p>
+
+<button @onclick="ContarVecesDigito" class="btn-calcular">Contar Veces</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+</style>
+
+@code {
+    private int numero;
+    private int digito;
+    private int cantidadVeces;
+
+    private void ContarVecesDigito()
+    {
+        if (digito >= 0 && digito <= 9)
+        {
+            cantidadVeces = ContarVecesEnNumero(numero, digito);
+        }
+        else
+        {
+            cantidadVeces = 0; // Si el dígito no es válido (fuera del rango 0-9)
+        }
+    }
+
+    private int ContarVecesEnNumero(int num, int dig)
+    {
+        // Convertimos el número a positivo y a string
+        string numStr = Math.Abs(num).ToString();
+        string digitoStr = dig.ToString();
+
+        // Contamos cuántas veces aparece el dígito en el número
+        int contador = 0;
+        foreach (char c in numStr)
+        {
+            if (c.ToString() == digitoStr)
+            {
+                contador++;
+            }
+        }
+        return contador;
+    }
+}
+

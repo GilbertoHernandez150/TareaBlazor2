@@ -1,0 +1,66 @@
+﻿@page "/ejercicio/10"
+
+<PageTitle>Ejercicio 10</PageTitle>
+
+<h2>Ejercicio 10: Verificar si un número tiene al menos 3 dígitos</h2>
+
+<p>Ingresa un número entero:</p>
+<input @bind="numero" type="number" />
+
+<p>Resultado: @resultadoMinimoTresDigitos</p>
+
+<button @onclick="VerificarMinimoTresDigitos" class="btn-calcular">Verificar Número</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+</style>
+
+@code {
+    private int numero;
+    private int resultadoMinimoTresDigitos;
+
+    private void VerificarMinimoTresDigitos()
+    {
+        resultadoMinimoTresDigitos = TieneMinimoTresDigitos(numero) ? 1 : 0;
+    }
+
+    private bool TieneMinimoTresDigitos(int num)
+    {
+        // Convertimos el número a positivo y verificamos cuántos dígitos tiene
+        num = Math.Abs(num);
+        return num.ToString().Length >= 3;
+    }
+}
+

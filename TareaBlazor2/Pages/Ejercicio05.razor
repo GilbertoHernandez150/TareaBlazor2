@@ -1,0 +1,81 @@
+﻿@page "/ejercicio/5"
+
+<PageTitle>Ejercicio 5</PageTitle>
+
+<h2>Ejercicio 5: Calcular el factorial de un número entero</h2>
+
+<p>Ingresa un número entero:</p>
+<input @bind="numero" type="number" />
+
+<p>El factorial de @numero es: @factorial</p>
+
+<button @onclick="CalcularFactorial" class="btn-calcular">Calcular Factorial</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+</style>
+
+@code {
+    private int numero;
+    private string factorial;
+
+    private void CalcularFactorial()
+    {
+        if (numero >= 0)
+        {
+            factorial = CalcularFactorialDeNumero(numero).ToString();
+        }
+        else
+        {
+            factorial = "No está definido para números negativos.";
+        }
+    }
+
+    private long CalcularFactorialDeNumero(int num)
+    {
+        if (num == 0)
+        {
+            return 1;
+        }
+
+        long resultado = 1;
+        for (int i = 1; i <= num; i++)
+        {
+            resultado *= i;
+        }
+        return resultado;
+    }
+}
+

@@ -1,0 +1,96 @@
+﻿@page "/ejercicio/15"
+
+<PageTitle>Ejercicio 15</PageTitle>
+
+<h2>Ejercicio 15: Contar números en los primeros 30 elementos de Fibonacci</h2>
+
+<p>Ingresa 10 números enteros en el vector:</p>
+
+@for (int i = 0; i < 10; i++)
+{
+    <input @bind="vector[i]" type="number" class="input-vector" />
+}
+
+<p>Resultado (Cantidad de números en Fibonacci): @resultadoCantidadFibonacci</p>
+
+<button @onclick="ContarFibonacci" class="btn-calcular">Contar en Fibonacci</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+
+    .input-vector {
+        width: 50px;
+        margin-right: 10px;
+    }
+</style>
+
+@code {
+    private int[] vector = new int[10];
+    private int resultadoCantidadFibonacci = 0;
+
+    private void ContarFibonacci()
+    {
+        resultadoCantidadFibonacci = ContarNumerosEnFibonacci(vector);
+    }
+
+    private int ContarNumerosEnFibonacci(int[] vec)
+    {
+        // Generar los primeros 30 números de la serie de Fibonacci
+        HashSet<int> fibonacciSet = new HashSet<int>();
+        int a = 0, b = 1;
+
+        for (int i = 0; i < 30; i++)
+        {
+            fibonacciSet.Add(a);
+            int temp = a;
+            a = b;
+            b = temp + b;
+        }
+
+        // Contar cuántos números del vector están en la serie de Fibonacci
+        int contador = 0;
+
+        foreach (int num in vec)
+        {
+            if (fibonacciSet.Contains(num))
+            {
+                contador++;
+            }
+        }
+
+        return contador;
+    }
+}
+

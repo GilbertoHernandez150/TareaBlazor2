@@ -1,0 +1,79 @@
+﻿@page "/ejercicio/13"
+
+<PageTitle>Ejercicio 13</PageTitle>
+
+<h2>Ejercicio 13: Retornar el dígito en la posición especificada</h2>
+
+<p>Ingresa un número entero:</p>
+<input @bind="numero" type="number" />
+
+<p>Ingresa una posición (un dígito menor o igual a 5):</p>
+<input @bind="posicion" type="number" min="1" max="5" />
+
+<p>Resultado: @resultadoDigito</p>
+
+<button @onclick="VerificarDigitoEnPosicion" class="btn-calcular">Verificar Dígito</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+</style>
+
+@code {
+    private int numero;
+    private int posicion;
+    private int resultadoDigito = -1;
+
+    private void VerificarDigitoEnPosicion()
+    {
+        resultadoDigito = ObtenerDigitoEnPosicion(numero, posicion);
+    }
+
+    private int ObtenerDigitoEnPosicion(int num, int pos)
+    {
+        // Convertimos el número a positivo y a string para acceder a los dígitos
+        string numStr = Math.Abs(num).ToString();
+
+        // Verificamos si la posición está dentro del rango válido
+        if (pos > 0 && pos <= 5 && pos <= numStr.Length)
+        {
+            // Obtenemos el dígito en la posición especificada (considerando 1-based index)
+            return int.Parse(numStr[pos - 1].ToString());
+        }
+
+        // Si la posición no es válida, retornamos -1
+        return -1;
+    }
+}
+

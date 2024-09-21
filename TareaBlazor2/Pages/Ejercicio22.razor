@@ -1,0 +1,104 @@
+﻿@page "/ejercicio/22"
+
+<PageTitle>Ejercicio 22</PageTitle>
+
+<h2>Ejercicio 22: Contar números primos en una matriz</h2>
+
+<p>Ingresa los valores de la matriz 3x4:</p>
+
+@for (int i = 0; i < 3; i++)
+{
+    <div>
+        @for (int j = 0; j < 4; j++)
+        {
+            <input @bind="matriz[i, j]" type="number" class="input-matriz" />
+        }
+    </div>
+}
+
+<p>Resultado (Cantidad de números primos en la matriz): @resultadoCantidad</p>
+
+<button @onclick="ContarPrimosEnMatriz" class="btn-calcular">Contar Primos</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+
+    .input-matriz {
+        width: 50px;
+        margin-right: 10px;
+    }
+</style>
+
+@code {
+    private int[,] matriz = new int[3, 4];
+    private int resultadoCantidad = 0;
+
+    private void ContarPrimosEnMatriz()
+    {
+        resultadoCantidad = ContarPrimos(matriz);
+    }
+
+    private int ContarPrimos(int[,] mat)
+    {
+        int contador = 0;
+
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (EsPrimo(mat[i, j]))
+                {
+                    contador++;
+                }
+            }
+        }
+
+        return contador;
+    }
+
+    private bool EsPrimo(int numero)
+    {
+        if (numero <= 1) return false;
+        for (int i = 2; i <= Math.Sqrt(numero); i++)
+        {
+            if (numero % i == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+

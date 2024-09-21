@@ -1,0 +1,90 @@
+﻿@page "/ejercicio/14"
+
+<PageTitle>Ejercicio 14</PageTitle>
+
+<h2>Ejercicio 14: Encontrar la posición del mayor valor en un vector</h2>
+
+<p>Ingresa 10 números enteros en el vector:</p>
+
+@for (int i = 0; i < 10; i++)
+{
+    <input @bind="vector[i]" type="number" class="input-vector" />
+}
+
+<p>Resultado (Posición del mayor valor): @resultadoPosicionMayor</p>
+
+<button @onclick="VerificarPosicionMayor" class="btn-calcular">Verificar Mayor</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+
+    .input-vector {
+        width: 50px;
+        margin-right: 10px;
+    }
+</style>
+
+@code {
+    private int[] vector = new int[10];
+    private int resultadoPosicionMayor = -1;
+
+    private void VerificarPosicionMayor()
+    {
+        resultadoPosicionMayor = ObtenerPosicionMayor(vector);
+    }
+
+    private int ObtenerPosicionMayor(int[] vec)
+    {
+        if (vec.Length == 0)
+        {
+            return -1; // Si el vector está vacío, retornamos -1
+        }
+
+        int mayor = vec[0];
+        int posicionMayor = 0;
+
+        for (int i = 1; i < vec.Length; i++)
+        {
+            if (vec[i] > mayor)
+            {
+                mayor = vec[i];
+                posicionMayor = i;
+            }
+        }
+
+        return posicionMayor;
+    }
+}
+

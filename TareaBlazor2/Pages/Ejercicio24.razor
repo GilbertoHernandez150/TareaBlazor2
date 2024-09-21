@@ -1,0 +1,93 @@
+﻿@page "/ejercicio/24"
+
+<PageTitle>Ejercicio 24</PageTitle>
+
+<h2>Ejercicio 24: Encontrar la columna del mayor número en la matriz</h2>
+
+<p>Ingresa los valores de la matriz 4x4:</p>
+
+@for (int i = 0; i < 4; i++)
+{
+    <div>
+        @for (int j = 0; j < 4; j++)
+        {
+            <input @bind="matriz[i, j]" type="number" class="input-matriz" />
+        }
+    </div>
+}
+
+<p>Resultado (Columna donde se encuentra el mayor número): @resultadoColumna</p>
+
+<button @onclick="BuscarMayorEnMatriz" class="btn-calcular">Buscar Mayor</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+
+    .input-matriz {
+        width: 50px;
+        margin-right: 10px;
+    }
+</style>
+
+@code {
+    private int[,] matriz = new int[4, 4];
+    private int resultadoColumna = -1; // Inicializamos con -1 para indicar que no se ha encontrado
+
+    private void BuscarMayorEnMatriz()
+    {
+        resultadoColumna = BuscarColumnaMayor(matriz);
+    }
+
+    private int BuscarColumnaMayor(int[,] mat)
+    {
+        int mayor = mat[0, 0];
+        int columnaMayor = 0;
+
+        for (int i = 0; i < 4; i++)
+        {
+            for (int j = 0; j < 4; j++)
+            {
+                if (mat[i, j] > mayor)
+                {
+                    mayor = mat[i, j];
+                    columnaMayor = j;
+                }
+            }
+        }
+
+        return columnaMayor;
+    }
+}
+

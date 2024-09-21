@@ -1,0 +1,81 @@
+﻿@page "/ejercicio/3"
+
+<PageTitle>Ejercicio 3</PageTitle>
+
+<h2>Ejercicio 3: Contar dígitos primos de un entero</h2>
+
+<p>Ingresa un número entero:</p>
+<input @bind="numero" type="number" />
+
+<p>La cantidad de dígitos primos es: @cantidadDigitosPrimos</p>
+
+<button @onclick="ContarDigitosPrimos" class="btn-calcular">Contar Dígitos Primos</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+</style>
+
+@code {
+    private int numero;
+    private int cantidadDigitosPrimos;
+
+    private void ContarDigitosPrimos()
+    {
+        cantidadDigitosPrimos = ContarCantidadDeDigitosPrimos(numero);
+    }
+
+    private int ContarCantidadDeDigitosPrimos(int num)
+    {
+        // Convertimos el número a positivo para que funcione con números negativos
+        string numStr = Math.Abs(num).ToString();
+        int contadorPrimos = 0;
+        foreach (char digito in numStr)
+        {
+            // Convertimos el dígito en número y verificamos si es primo
+            int digitoEntero = int.Parse(digito.ToString());
+            if (EsPrimo(digitoEntero))
+            {
+                contadorPrimos++;
+            }
+        }
+        return contadorPrimos;
+    }
+
+    private bool EsPrimo(int digito)
+    {
+        // Los dígitos primos son: 2, 3, 5, 7
+        return digito == 2 || digito == 3 || digito == 5 || digito == 7;
+    }
+}

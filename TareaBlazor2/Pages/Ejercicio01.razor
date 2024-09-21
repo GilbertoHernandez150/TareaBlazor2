@@ -1,0 +1,64 @@
+﻿@page "/ejercicio/1"
+
+<PageTitle>Ejercicio 1</PageTitle>
+
+<h2>Ejercicio 1: Obtener el último dígito de un entero</h2>
+
+<p>Ingresa un número entero:</p>
+<input @bind="numero" type="number" />
+
+<p>El último dígito es: @ultimoDigito</p>
+
+<button @onclick="CalcularUltimoDigito" class="btn-calcular">Calcular</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+</style>
+
+@code {
+    private int numero;
+    private int ultimoDigito;
+
+    private void CalcularUltimoDigito()
+    {
+        ultimoDigito = ObtenerUltimoDigito(numero);
+    }
+
+    private int ObtenerUltimoDigito(int num)
+    {
+        return Math.Abs(num % 10); // Asegura que funcione con números negativos
+    }
+}
+

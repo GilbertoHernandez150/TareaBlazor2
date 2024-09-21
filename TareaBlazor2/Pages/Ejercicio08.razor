@@ -1,0 +1,76 @@
+﻿@page "/ejercicio/8"
+
+<PageTitle>Ejercicio 8</PageTitle>
+
+<h2>Ejercicio 8: Verificar si un número es múltiplo de otro</h2>
+
+<p>Ingresa el primer número (número A):</p>
+<input @bind="numeroA" type="number" />
+
+<p>Ingresa el segundo número (número B):</p>
+<input @bind="numeroB" type="number" />
+
+<p>Resultado: @resultadoMultiplo</p>
+
+<button @onclick="VerificarMultiplo" class="btn-calcular">Verificar Múltiplo</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+</style>
+
+@code {
+    private int numeroA;
+    private int numeroB;
+    private int resultadoMultiplo;
+
+    private void VerificarMultiplo()
+    {
+        if (numeroB != 0) // Evitamos división por cero
+        {
+            resultadoMultiplo = EsMultiplo(numeroA, numeroB) ? 1 : 0;
+        }
+        else
+        {
+            resultadoMultiplo = 0; // No es posible dividir por cero
+        }
+    }
+
+    private bool EsMultiplo(int a, int b)
+    {
+        // Retornamos true si el número A es múltiplo de B
+        return a % b == 0;
+    }
+}
+

@@ -1,0 +1,78 @@
+﻿@page "/ejercicio/12"
+
+<PageTitle>Ejercicio 12</PageTitle>
+
+<h2>Ejercicio 12: Verificar si la diferencia es un número primo</h2>
+
+<p>Ingresa el primer número entero:</p>
+<input @bind="primerNumero" type="number" />
+
+<p>Ingresa el segundo número entero:</p>
+<input @bind="segundoNumero" type="number" />
+
+<p>Resultado: @resultadoEsPrimo</p>
+
+<button @onclick="VerificarDiferenciaPrimo" class="btn-calcular">Verificar Diferencia</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+</style>
+
+@code {
+    private int primerNumero;
+    private int segundoNumero;
+    private int resultadoEsPrimo;
+
+    private void VerificarDiferenciaPrimo()
+    {
+        int diferencia = Math.Abs(primerNumero - segundoNumero);
+        resultadoEsPrimo = EsPrimo(diferencia) ? 1 : 0;
+    }
+
+    private bool EsPrimo(int num)
+    {
+        if (num < 2) return false;
+
+        for (int i = 2; i <= Math.Sqrt(num); i++)
+        {
+            if (num % i == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+

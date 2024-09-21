@@ -1,0 +1,100 @@
+﻿@page "/ejercicio/18"
+
+<PageTitle>Ejercicio 18</PageTitle>
+
+<h2>Ejercicio 18: Encontrar la posición del mayor primo que termina en 3</h2>
+
+<p>Ingresa 10 números enteros en el vector:</p>
+
+@for (int i = 0; i < 10; i++)
+{
+    <input @bind="vector[i]" type="number" class="input-vector" />
+}
+
+<p>Resultado (Posición del mayor primo que termina en 3): @resultadoPosicionMayorPrimo</p>
+
+<button @onclick="EncontrarMayorPrimoQueTerminaEn3" class="btn-calcular">Buscar Mayor Primo</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+
+    .input-vector {
+        width: 50px;
+        margin-right: 10px;
+    }
+</style>
+
+@code {
+    private int[] vector = new int[10];
+    private int resultadoPosicionMayorPrimo = -1;
+
+    private void EncontrarMayorPrimoQueTerminaEn3()
+    {
+        resultadoPosicionMayorPrimo = ObtenerPosicionMayorPrimoQueTerminaEn3(vector);
+    }
+
+    private int ObtenerPosicionMayorPrimoQueTerminaEn3(int[] vec)
+    {
+        int mayorPrimo = -1; // Variable para almacenar el mayor primo encontrado
+        int posicionMayorPrimo = -1; // Variable para almacenar la posición del mayor primo
+
+        for (int i = 0; i < vec.Length; i++)
+        {
+            if (EsPrimo(vec[i]) && vec[i] % 10 == 3) // Verificamos si es primo y termina en 3
+            {
+                if (mayorPrimo < vec[i]) // Comparamos para encontrar el mayor
+                {
+                    mayorPrimo = vec[i];
+                    posicionMayorPrimo = i; // Actualizamos la posición
+                }
+            }
+        }
+
+        return posicionMayorPrimo; // Retorna -1 si no se encontró ningún primo
+    }
+
+    private bool EsPrimo(int numero)
+    {
+        if (numero < 2) return false; // Los números menores a 2 no son primos
+        for (int i = 2; i <= Math.Sqrt(numero); i++)
+        {
+            if (numero % i == 0)
+            {
+                return false; // No es primo
+            }
+        }
+        return true; // Es primo
+    }
+}
