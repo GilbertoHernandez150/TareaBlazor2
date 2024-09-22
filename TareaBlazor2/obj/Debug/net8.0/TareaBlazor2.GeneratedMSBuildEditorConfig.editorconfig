@@ -1,0 +1,151 @@
+is_global = true
+build_property.EnableAotAnalyzer = 
+build_property.EnableSingleFileAnalyzer = 
+build_property.EnableTrimAnalyzer = false
+build_property.IncludeAllContentForSelfExtract = 
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = false
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = browser
+build_property.RootNamespace = TareaBlazor2
+build_property.RootNamespace = TareaBlazor2
+build_property.ProjectDir = C:\Users\Gilberto\source\repos\Mejoras\TareaBlazor2\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = false
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\Gilberto\source\repos\Mejoras\TareaBlazor2
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Acerca.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNlcmNhLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio01.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMDEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio02.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMDIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio03.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMDMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio04.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMDQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio05.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMDUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio06.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMDYucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio07.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMDcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio08.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMDgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio09.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMDkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio10.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMTAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio11.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMTEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio12.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMTIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio13.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMTMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio14.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMTQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio15.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMTUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio16.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMTYucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio17.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMTcucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio18.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMTgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio19.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMTkucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio20.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMjAucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio21.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMjEucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio22.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMjIucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio23.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMjMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio24.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMjQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Ejercicio25.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRWplcmNpY2lvMjUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Pages/MenuEjercicios.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVudUVqZXJjaWNpb3MucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Layout/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-dge85ngrjs
+
+[C:/Users/Gilberto/source/repos/Mejoras/TareaBlazor2/Layout/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-x5b1kmo2fs

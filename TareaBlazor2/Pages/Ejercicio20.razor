@@ -1,0 +1,137 @@
+﻿@page "/ejercicio/20"
+
+<PageTitle>Ejercicio 20</PageTitle>
+
+<h2>Ejercicio 20: Contar dígitos en un vector</h2>
+
+<p>Ingresa 10 números enteros en el vector:</p>
+
+<input type="number" @bind="input1" class="input-vector" />
+<input type="number" @bind="input2" class="input-vector" />
+<input type="number" @bind="input3" class="input-vector" />
+<input type="number" @bind="input4" class="input-vector" />
+<input type="number" @bind="input5" class="input-vector" />
+<input type="number" @bind="input6" class="input-vector" />
+<input type="number" @bind="input7" class="input-vector" />
+<input type="number" @bind="input8" class="input-vector" />
+<input type="number" @bind="input9" class="input-vector" />
+<input type="number" @bind="input10" class="input-vector" />
+
+<p>Ingresa un dígito a buscar (0-9):</p>
+<input @bind="digito" type="number" />
+
+<p>Resultado (Cantidad de veces que se encuentra el dígito en el vector): @resultadoCantidad</p>
+
+<button @onclick="ContarDigitoEnVector" class="btn-calcular">Contar Dígito</button>
+
+<a href="/menu-ejercicios" class="btn-volver">Volver al Menú de Ejercicios</a>
+
+<style>
+    .btn-volver {
+        background-color: #e74c3c;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        display: inline-block;
+        margin-top: 20px;
+    }
+
+        .btn-volver:hover {
+            background-color: #c0392b;
+        }
+
+    .btn-calcular {
+        background-color: #3498db;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 1em;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+        .btn-calcular:hover {
+            background-color: #2980b9;
+        }
+
+    .input-vector {
+        width: 50px;
+        margin-right: 10px;
+    }
+</style>
+
+@code {
+    private int[] vector = new int[10];
+    private int digito { get; set; }
+    private int resultadoCantidad = 0;
+
+    public int input1;
+    public int input2;
+    public int input3;
+    public int input4;
+    public int input5;
+    public int input6;
+    public int input7;
+    public int input8;
+    public int input9;
+    public int input10;
+
+
+    private void SetVectorValues()
+    {
+        vector[0] = input1;
+        vector[1] = input2;
+        vector[2] = input3;
+        vector[3] = input4;
+        vector[4] = input5;
+        vector[5] = input6;
+        vector[6] = input7;
+        vector[7] = input8;
+        vector[8] = input9;
+        vector[9] = input10;
+
+    }
+
+    private void ContarDigitoEnVector()
+    {
+        SetVectorValues();
+        resultadoCantidad = ContarDigitosEnVector(vector, digito);
+    }
+
+    private int ContarDigitosEnVector(int[] vec, int d)
+    {
+        int contador = 0;
+
+        foreach (int numero in vec)
+        {
+            var stringnum = numero.ToString();
+            if (stringnum.Contains(digito.ToString()))
+            {
+                // Convertimos el número a cadena para contar las ocurrencias del dígito
+                contador += ContarDigitoEnNumero(stringnum, d);
+            }
+        }
+
+        return contador;
+    }
+
+    private int ContarDigitoEnNumero(string numero, int d)
+    {
+        int contador = 0;
+
+        
+        foreach (char c in numero)
+        {
+            if (c == d.ToString()[0]) // Comparamos con el carácter del dígito
+            {
+                contador++;
+            }
+        }
+        return contador;
+    }
+}
