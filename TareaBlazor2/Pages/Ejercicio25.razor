@@ -6,15 +6,41 @@
 
 <p>Ingresa los valores de la matriz 5x5:</p>
 
-@for (int i = 0; i < 5; i++)
-{
-    <div>
-        @for (int j = 0; j < 5; j++)
-        {
-            <input @bind="matriz[i, j]" type="number" class="input-matriz" />
-        }
-    </div>
-}
+<div>
+    <input @bind="input1" type="number" class="input-matriz" />
+    <input @bind="input2" type="number" class="input-matriz" />
+    <input @bind="input3" type="number" class="input-matriz" />
+    <input @bind="input4" type="number" class="input-matriz" />
+    <input @bind="input5" type="number" class="input-matriz" />
+</div>
+<div>
+    <input @bind="input6" type="number" class="input-matriz" />
+    <input @bind="input7" type="number" class="input-matriz" />
+    <input @bind="input8" type="number" class="input-matriz" />
+    <input @bind="input9" type="number" class="input-matriz" />
+    <input @bind="input10" type="number" class="input-matriz" />
+</div>
+<div>
+    <input @bind="input11" type="number" class="input-matriz" />
+    <input @bind="input12" type="number" class="input-matriz" />
+    <input @bind="input13" type="number" class="input-matriz" />
+    <input @bind="input14" type="number" class="input-matriz" />
+    <input @bind="input15" type="number" class="input-matriz" />
+</div>
+<div>
+    <input @bind="input16" type="number" class="input-matriz" />
+    <input @bind="input17" type="number" class="input-matriz" />
+    <input @bind="input18" type="number" class="input-matriz" />
+    <input @bind="input19" type="number" class="input-matriz" />
+    <input @bind="input20" type="number" class="input-matriz" />
+</div>
+<div>
+    <input @bind="input21" type="number" class="input-matriz" />
+    <input @bind="input22" type="number" class="input-matriz" />
+    <input @bind="input23" type="number" class="input-matriz" />
+    <input @bind="input24" type="number" class="input-matriz" />
+    <input @bind="input25" type="number" class="input-matriz" />
+</div>
 
 <p>Resultado (Moda de la matriz): @resultadoModa</p>
 
@@ -65,8 +91,64 @@
     private int[,] matriz = new int[5, 5];
     private int resultadoModa;
 
+    public int input1;
+    public int input2;
+    public int input3;
+    public int input4;
+    public int input5;
+    public int input6;
+    public int input7;
+    public int input8;
+    public int input9;
+    public int input10;
+    public int input11;
+    public int input12;
+    public int input13;
+    public int input14;
+    public int input15;
+    public int input16;
+    public int input17;
+    public int input18;
+    public int input19;
+    public int input20;
+    public int input21;
+    public int input22;
+    public int input23;
+    public int input24;
+    public int input25;
+
+    private void SetVectorValues()
+    {
+        matriz[0, 0] = input1;
+        matriz[0, 1] = input2;
+        matriz[0, 2] = input3;
+        matriz[0, 3] = input4;
+        matriz[0, 4] = input5;
+        matriz[1, 0] = input6;
+        matriz[1, 1] = input7;
+        matriz[1, 2] = input8;
+        matriz[1, 3] = input9;
+        matriz[1, 4] = input10;
+        matriz[2, 0] = input11;
+        matriz[2, 1] = input12;
+        matriz[2, 2] = input13;
+        matriz[2, 3] = input14;
+        matriz[2, 4] = input15;
+        matriz[3, 0] = input16;
+        matriz[3, 1] = input17;
+        matriz[3, 2] = input18;
+        matriz[3, 3] = input19;
+        matriz[3, 4] = input20;
+        matriz[4, 0] = input21;
+        matriz[4, 1] = input22;
+        matriz[4, 2] = input23;
+        matriz[4, 3] = input24;
+        matriz[4, 4] = input25;
+    }
+
     private void CalcularModaEnMatriz()
     {
+        SetVectorValues();
         resultadoModa = CalcularModa(matriz);
     }
 
@@ -92,7 +174,7 @@
         }
 
         // Encontrar el número con más ocurrencias
-        int moda = mat[0, 0];
+        int moda = 0;
         int maxOcurrencias = 0;
 
         foreach (var par in conteo)
@@ -104,7 +186,7 @@
             }
         }
 
-        return moda;
+        return maxOcurrencias > 1 ? moda : -1; // Devuelve -1 si no hay moda
     }
 }
 

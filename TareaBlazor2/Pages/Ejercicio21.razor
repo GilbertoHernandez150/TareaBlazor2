@@ -6,10 +6,16 @@
 
 <p>Ingresa 10 números enteros en el vector:</p>
 
-@for (int i = 0; i < 10; i++)
-{
-    <input @bind="vector[i]" type="number" class="input-vector" />
-}
+<input type="number" @bind="input1" class="input-vector" />
+<input type="number" @bind="input2" class="input-vector" />
+<input type="number" @bind="input3" class="input-vector" />
+<input type="number" @bind="input4" class="input-vector" />
+<input type="number" @bind="input5" class="input-vector" />
+<input type="number" @bind="input6" class="input-vector" />
+<input type="number" @bind="input7" class="input-vector" />
+<input type="number" @bind="input8" class="input-vector" />
+<input type="number" @bind="input9" class="input-vector" />
+<input type="number" @bind="input10" class="input-vector" />
 
 <p>Ingresa un dígito a buscar (0-9):</p>
 <input @bind="digito" type="number" min="0" max="9" />
@@ -64,8 +70,36 @@
     private int digito;
     private int resultadoCantidad = 0;
 
+    public int input1;
+    public int input2;
+    public int input3;
+    public int input4;
+    public int input5;
+    public int input6;
+    public int input7;
+    public int input8;
+    public int input9;
+    public int input10;
+
+
+    private void SetVectorValues()
+    {
+        vector[0] = input1;
+        vector[1] = input2;
+        vector[2] = input3;
+        vector[3] = input4;
+        vector[4] = input5;
+        vector[5] = input6;
+        vector[6] = input7;
+        vector[7] = input8;
+        vector[8] = input9;
+        vector[9] = input10;
+
+    }
+
     private void ContarDigitoPenultimo()
     {
+        SetVectorValues();
         resultadoCantidad = ContarPenultimo(vector, digito);
     }
 
@@ -83,7 +117,6 @@
                 contador++;
             }
         }
-
         return contador;
     }
 }

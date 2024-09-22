@@ -6,17 +6,35 @@
 
 <p>Ingresa los valores de la matriz 4x4:</p>
 
-@for (int i = 0; i < 4; i++)
-{
-    <div>
-        @for (int j = 0; j < 4; j++)
-        {
-            <input @bind="matriz[i, j]" type="number" class="input-matriz" />
-        }
-    </div>
-}
+<div>
+    <input type="number" @bind="input1" class="input-matriz" />
+    <input type="number" @bind="input2" class="input-matriz" />
+    <input type="number" @bind="input3" class="input-matriz" />
+    <input type="number" @bind="input4" class="input-matriz" />
+</div>
 
-<p>Resultado (Columna donde se encuentra el mayor número): @resultadoColumna</p>
+<div>
+    <input type="number" @bind="input5" class="input-matriz" />
+    <input type="number" @bind="input6" class="input-matriz" />
+    <input type="number" @bind="input7" class="input-matriz" />
+    <input type="number" @bind="input8" class="input-matriz" />
+</div>
+
+<div>
+    <input type="number" @bind="input9" class="input-matriz" />
+    <input type="number" @bind="input10" class="input-matriz" />
+    <input type="number" @bind="input11" class="input-matriz" />
+    <input type="number" @bind="input12" class="input-matriz" />
+</div>
+
+<div>
+    <input type="number" @bind="input13" class="input-matriz" />
+    <input type="number" @bind="input14" class="input-matriz" />
+    <input type="number" @bind="input15" class="input-matriz" />
+    <input type="number" @bind="input16" class="input-matriz" />
+</div>
+
+<p>Resultado (Columna donde se encuentra el mayor número): @resultadoPosicion</p>
 
 <button @onclick="BuscarMayorEnMatriz" class="btn-calcular">Buscar Mayor</button>
 
@@ -63,16 +81,55 @@
 
 @code {
     private int[,] matriz = new int[4, 4];
-    private int resultadoColumna = -1; // Inicializamos con -1 para indicar que no se ha encontrado
+    private (int fila, int columna) resultadoPosicion = (-1, -1);
+
+    public int input1;
+    public int input2;
+    public int input3;
+    public int input4;
+    public int input5;
+    public int input6;
+    public int input7;
+    public int input8;
+    public int input9;
+    public int input10;
+    public int input11;
+    public int input12;
+    public int input13;
+    public int input14;
+    public int input15;
+    public int input16;
+
+    private void SetVectorValues()
+    {
+        matriz[0, 0] = input1;
+        matriz[0, 1] = input2;
+        matriz[0, 2] = input3;
+        matriz[0, 3] = input4;
+        matriz[1, 0] = input5;
+        matriz[1, 1] = input6;
+        matriz[1, 2] = input7;
+        matriz[1, 3] = input8;
+        matriz[2, 0] = input9;
+        matriz[2, 1] = input10;
+        matriz[2, 2] = input11;
+        matriz[2, 3] = input12;
+        matriz[3, 0] = input13;
+        matriz[3, 1] = input14;
+        matriz[3, 2] = input15;
+        matriz[3, 3] = input16;
+    }
 
     private void BuscarMayorEnMatriz()
     {
-        resultadoColumna = BuscarColumnaMayor(matriz);
+        SetVectorValues();
+        resultadoPosicion = BuscarPosicionMayor(matriz);
     }
 
-    private int BuscarColumnaMayor(int[,] mat)
+    private (int fila, int columna) BuscarPosicionMayor(int[,] mat)
     {
         int mayor = mat[0, 0];
+        int filaMayor = 0;
         int columnaMayor = 0;
 
         for (int i = 0; i < 4; i++)
@@ -82,12 +139,12 @@
                 if (mat[i, j] > mayor)
                 {
                     mayor = mat[i, j];
+                    filaMayor = i;
                     columnaMayor = j;
                 }
             }
         }
 
-        return columnaMayor;
+        return (filaMayor, columnaMayor);
     }
 }
-
